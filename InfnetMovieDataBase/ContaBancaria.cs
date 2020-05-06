@@ -8,6 +8,15 @@ namespace InfnetBanking
         // Membros podem ser campos / propriedades ou métodos
         private double _saldo;
 
+        //Autopropriedade (C# 3.0 ou superior)
+        public int Agencia { get; set; }
+
+        //Autopropriedade (C# 3.0 ou superior)
+        public int Numero { get; set; }
+
+        //Autopropriedade (C# 3.0 ou superior)
+        public Pessoa Titular { get; set; }
+
         public double Saldo
         {
             get
@@ -16,8 +25,8 @@ namespace InfnetBanking
             }
         }
 
-        //Autopropriedade (C# 3.0 ou superior)
-        public string Titular { get; set; }
+        //Poderíamos ter criado Saldo como uma autopropriedade apenas com método get. Teríamos:
+        //public double Saldo { get; } // <- Sem um set
 
         public void Depositar(double valor)
         {
