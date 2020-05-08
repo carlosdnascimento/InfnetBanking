@@ -2,11 +2,26 @@
 
 namespace InfnetBanking
 {
-    class ContaBancaria
+    public class ContaBancaria
     {
+        //Construtor para a classe:
+        public ContaBancaria()
+        {
+            Titular = new Pessoa();
+        }
+
+        public ContaBancaria(double saldo, string nome, string sobrenome)
+        {
+            this.saldo = saldo;
+            Titular = new Pessoa();
+            Titular.Nome = nome;
+            Titular.Sobrenome = sobrenome;
+        }
+
+
         // Classes possuem membros
         // Membros podem ser campos / propriedades ou métodos
-        private double _saldo;
+        private double saldo;
 
         //Autopropriedade (C# 3.0 ou superior)
         public int Agencia { get; set; }
@@ -21,7 +36,7 @@ namespace InfnetBanking
         {
             get
             {
-                return _saldo;
+                return saldo;
             }
         }
 
@@ -30,14 +45,14 @@ namespace InfnetBanking
 
         public void Depositar(double valor)
         {
-            _saldo += valor;
+            saldo += valor;
         }
 
         public void Sacar(double valor)
         {
-            if (_saldo >= valor)
+            if (saldo >= valor)
             {
-                _saldo -= valor;
+                saldo -= valor;
             } else
             {
                 Console.WriteLine("Saldo insuficiente.");

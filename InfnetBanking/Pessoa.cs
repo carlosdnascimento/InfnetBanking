@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InfnetBanking
 {
@@ -7,10 +8,11 @@ namespace InfnetBanking
         public string Cpf { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        public Endereco Endereco { get; set; }
+        public List<Endereco> Enderecos { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
         public DateTime DataNascimento { get; set; }
+        public List<ContaBancaria> Contas { get; set; }
 
         public string ImprimirNome()
         {
