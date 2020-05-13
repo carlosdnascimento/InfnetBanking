@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace InfnetBanking
 {
-    public class ContaPoupanca : ContaBancaria 
+    public class ContaPoupanca : ContaBancaria , IComparable<ContaPoupanca>, IEquatable<ContaPoupanca>
     {
         public DateTime DataAniversario { get; set; }
 
@@ -23,6 +24,24 @@ namespace InfnetBanking
             else
             {
                 return false;
+            }
+        }
+
+        public int CompareTo(ContaPoupanca c)
+        {
+            return this.DataAniversario.CompareTo(c.DataAniversario);
+        }
+
+        public bool Equals(ContaPoupanca c)
+        {
+            if (this.Agencia.Equals(c.Agencia) 
+                && this.Numero.Equals(c.Numero) 
+                && this.Titular.Equals(c.Titular))
+            {
+                return true;
+            } else
+            {
+                return false; 
             }
         }
     }

@@ -1,10 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InfnetBanking
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            var clientes = new List<Pessoa>();
+            Console.WriteLine("Informe os nomes dos clientes a seguir.");
+            while (true)
+            {
+                Console.Write("CPF: ");
+                string cpf = Console.ReadLine();
+                Console.Write("Nome: ");
+                string nome = Console.ReadLine();
+                Console.Write("Sobrenome: ");
+                string sobrenome = Console.ReadLine();
+                Pessoa p = new Pessoa(cpf, nome, sobrenome);
+                clientes.Add(p);
+                Console.Write("Digite qualquer tecla para continuar, 0 para sair... ");
+                string opcao = Console.ReadLine();
+                if (opcao == "0")
+                {
+                    break;
+                }
+            }
+        }
+
+        private static void Exemplo20200508()
         {
             ContaPoupanca conta1 = new ContaPoupanca();
             conta1.DataAniversario = new DateTime(2020, 01, 08);
