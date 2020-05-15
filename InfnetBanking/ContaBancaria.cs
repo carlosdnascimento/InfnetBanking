@@ -4,33 +4,9 @@ namespace InfnetBanking
 {
     public class ContaBancaria
     {
-        //Construtor para a classe:
-        public ContaBancaria()
-        {
-            Titular = new Pessoa();
-        }
-
-        public ContaBancaria(double saldo, string nome, string sobrenome)
-        {
-            this.saldo = saldo;
-            Titular = new Pessoa();
-            Titular.Nome = nome;
-            Titular.Sobrenome = sobrenome;
-        }
-
-
         // Classes possuem membros
         // Membros podem ser campos / propriedades ou métodos
         private double saldo;
-
-        //Autopropriedade (C# 3.0 ou superior)
-        public int Agencia { get; set; }
-
-        //Autopropriedade (C# 3.0 ou superior)
-        public int Numero { get; set; }
-
-        //Autopropriedade (C# 3.0 ou superior)
-        public Pessoa Titular { get; set; }
 
         public double Saldo
         {
@@ -43,6 +19,19 @@ namespace InfnetBanking
         //Poderíamos ter criado Saldo como uma autopropriedade apenas com método get. Teríamos:
         //public double Saldo { get; } // <- Sem um set
 
+        //Autopropriedades (C# 3.0 ou superior)
+        public int Agencia { get; set; }
+        public int Numero { get; set; }
+
+        public Pessoa Titular { get; set; }
+
+        //Construtores para a classe:
+        public ContaBancaria()
+        {
+            // Construtor padrão explicitado.
+        }
+
+        //Métodos da classe:
         public void Depositar(double valor)
         {
             saldo += valor;
@@ -53,7 +42,8 @@ namespace InfnetBanking
             if (saldo >= valor)
             {
                 saldo -= valor;
-            } else
+            }
+            else
             {
                 Console.WriteLine("Saldo insuficiente.");
             }
